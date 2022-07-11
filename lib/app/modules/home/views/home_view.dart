@@ -2,6 +2,8 @@ import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:projectnoodles/app/modules/home/widgets/service_slot.dart';
+import 'package:projectnoodles/app/modules/home/widgets/user_slot.dart';
 
 import '../controllers/home_controller.dart';
 
@@ -29,7 +31,6 @@ class HomeView extends GetView<HomeController> {
             ),
           ),
         ),
-        actions: [Text('Today')],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -38,38 +39,31 @@ class HomeView extends GetView<HomeController> {
             const SizedBox(height: 20),
             Center(
               child: Container(
-                // color: Colors.red,
+                color: Colors.red,
                 width: MediaQuery.of(context).size.width * .95,
                 height: 200,
                 child: ListView(
                   children: [
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: const [
-                        SizedBox(width: 15),
-                        Text('10'),
-                        Text('11'),
-                        Text('12'),
-                        Text('13'),
-                        Text('14'),
-                        Text('15'),
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        FilteredTime(filteredTime: 10),
+                        FilteredTime(filteredTime: 11),
+                        FilteredTime(filteredTime: 12),
+                        FilteredTime(filteredTime: 13),
+                        FilteredTime(filteredTime: 14),
+                        FilteredTime(filteredTime: 15),
                       ],
                     ),
-                    const _services(serviceColor: Colors.blue),
-                    const _services(
-                      serviceColor: Colors.purple,
+                    const SlotService(),
+                    const SlotService(
                       serviceName: 'Ex 2',
-                      serviceDuration: .35,
                     ),
-                    const _services(
-                      serviceColor: Colors.orange,
+                    const SlotService(
                       serviceName: 'Ex 3',
-                      serviceDuration: .67,
                     ),
-                    const _services(
-                      serviceColor: Colors.teal,
+                    const SlotService(
                       serviceName: 'Ex 4',
-                      serviceDuration: .45,
                     ),
                   ],
                 ),
@@ -82,32 +76,19 @@ class HomeView extends GetView<HomeController> {
   }
 }
 
-class _services extends StatelessWidget {
-  const _services({
+class FilteredTime extends StatelessWidget {
+  const FilteredTime({
     Key? key,
-    this.serviceColor = Colors.teal,
-    this.serviceName,
-    this.serviceDuration = .85,
+    this.filteredTime = 10,
   }) : super(key: key);
-
-  final Color serviceColor;
-  final String? serviceName;
-  final double serviceDuration;
-
-  ///use datetime?
+  final int filteredTime;
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Text(serviceName ?? 'Ex 1'),
-        const SizedBox(width: 10),
-        Container(
-          width: MediaQuery.of(context).size.width * serviceDuration,
-          height: 40,
-          color: serviceColor,
-        ),
-      ],
+    return Container(
+      color: Colors.green,
+      width: MediaQuery.of(context).size.width * .14,
+      child: Center(child: Text(filteredTime.toString())),
     );
   }
 }
