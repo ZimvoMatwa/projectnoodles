@@ -55,16 +55,26 @@ class HomeView extends GetView<HomeController> {
                         FilteredTime(filteredTime: 15),
                       ],
                     ),
-                    const SlotService(),
-                    const SlotService(
-                      serviceName: 'Ex 2',
-                    ),
-                    const SlotService(
-                      serviceName: 'Ex 3',
-                    ),
-                    const SlotService(
-                      serviceName: 'Ex 4',
-                    ),
+                    Expanded(
+                      child: ListView.builder(
+                          itemCount: controller.exhibits.length,
+                          itemBuilder: (context, __) {
+                            return SlotService(
+                              serviceName: controller.exhibits[__].exhibitName,
+                              activeMembers:
+                                  controller.exhibits[__].exhibitMembers!,
+                            );
+                          }),
+                    )
+                    // const SlotService(
+                    //   serviceName: 'Ex 2',
+                    // ),
+                    // const SlotService(
+                    //   serviceName: 'Ex 3',
+                    // ),
+                    // const SlotService(
+                    //   serviceName: 'Ex 4',
+                    // ),
                   ],
                 ),
               ),
