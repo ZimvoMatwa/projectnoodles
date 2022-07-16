@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:projectnoodles/app/modules/home/controllers/home_controller.dart';
 import 'package:projectnoodles/app/modules/home/widgets/service_slot.dart';
 import 'package:projectnoodles/app/routes/app_pages.dart';
+import 'package:projectnoodles/app/translations/app_translations.dart';
 
 class HomeView extends GetView<HomeController> {
   @override
@@ -115,7 +116,7 @@ class HomeView extends GetView<HomeController> {
                                 ),
                               ),
                               onPressed: () {},
-                              child: Text('Add Members')),
+                              child: Text(L.addMember.tr)),
                           // const SizedBox(height: 20),
                           TextButton(
                               style: ButtonStyle(
@@ -124,8 +125,7 @@ class HomeView extends GetView<HomeController> {
                                 ),
                               ),
                               onPressed: () {},
-                              child: Text('Book Member')),
-                          // const SizedBox(height: 20),
+                              child: Text(L.bookMember.tr)),
                           TextButton(
                               style: ButtonStyle(
                                 minimumSize: MaterialStateProperty.all(
@@ -135,7 +135,7 @@ class HomeView extends GetView<HomeController> {
                                 Get.back();
                                 Get.toNamed(Routes.ADD_SERVICES);
                               },
-                              child: Text('Add Services')),
+                              child: Text(L.addServices.tr)),
                           SizedBox(
                               height: MediaQuery.of(context).size.height * .3),
                         ],
