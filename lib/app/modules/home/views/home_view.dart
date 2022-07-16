@@ -104,6 +104,9 @@ class HomeView extends GetView<HomeController> {
                     bottom: MediaQuery.of(context).size.height * .1,
                     left: MediaQuery.of(context).size.width * .1,
                     child: Dialog(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
                       insetAnimationCurve: Curves.easeIn,
                       insetAnimationDuration: const Duration(milliseconds: 300),
                       child: Column(
@@ -132,7 +135,7 @@ class HomeView extends GetView<HomeController> {
                                     const Size(300, 40)),
                               ),
                               onPressed: () {
-                                Get.back();
+                                controller.pressed = false;
                                 Get.toNamed(Routes.ADD_SERVICES);
                               },
                               child: Text(L.addServices.tr)),

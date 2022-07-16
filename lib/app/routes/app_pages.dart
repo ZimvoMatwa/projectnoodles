@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 
 import '../modules/add-services/bindings/add_services_binding.dart';
+import '../modules/add-services/bindings/add_services_binding.dart';
+import '../modules/add-services/views/add_services_view.dart';
 import '../modules/add-services/views/add_services_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
@@ -22,6 +24,13 @@ class AppPages {
       name: _Paths.ADD_SERVICES,
       page: () => AddServicesView(),
       binding: AddServicesBinding(),
+      children: [
+        GetPage(
+          name: _Paths.ADD_SERVICES,
+          page: () => AddServicesView(),
+          binding: AddServicesBinding(),
+        ),
+      ],
     ),
   ];
 }
