@@ -17,4 +17,5 @@ samples, guidance on mobile development, and a full API reference.
 
 ## Next Steps
 
-1. <!--Pass userName, colours, and time through ServiceSlot instead of UserSlot, and remove boiler plate-->
+1. Pass userName, colours, and time through ServiceSlot instead of UserSlot, and remove boiler plate
+2. Make Home controller observable

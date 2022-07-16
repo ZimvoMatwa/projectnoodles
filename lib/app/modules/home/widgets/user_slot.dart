@@ -14,18 +14,25 @@ class UserSlot extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.fromLTRB(
-        5,
-        5,
-        (MediaQuery.of(context).size.width * slotDuration) / 2,
-        5,
-      ),
+      padding: const EdgeInsets.symmetric(vertical: 5),
       width: MediaQuery.of(context).size.width * slotDuration,
       color: slotColour,
-      child: CircleAvatar(
-        // foregroundColor: Colors.white,
-        backgroundColor: Colors.amberAccent,
-        child: Text(slotUser, style: const TextStyle(color: Colors.white)),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          CircleAvatar(
+            // foregroundColor: Colors.white,
+            backgroundColor: Colors.white30,
+            child: Text(
+              slotUser,
+              style: TextStyle(
+                color: Colors.black.withOpacity(.5),
+                fontWeight: FontWeight.w500,
+                height: 1.2222,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

@@ -69,7 +69,7 @@ class HomeController extends GetxController {
         MemberBooking(
           memberName: 'Z',
           memberHours: .4,
-          memberColour: Colors.orange,
+          memberColour: Colors.green,
         ),
         MemberBooking(
           memberName: 'S',

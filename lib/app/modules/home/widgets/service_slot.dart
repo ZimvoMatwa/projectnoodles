@@ -40,27 +40,7 @@ class SlotService extends GetView<HomeController> {
                 slotDuration: activeMembers[_].memberHours!,
                 slotColour: activeMembers[_].memberColour!,
               ),
-            )
-            // Row(
-            //   children: const [
-            //     UserSlot(
-            //       slotColour: Colors.purple,
-            //       slotDuration: .3,
-            //       slotUser: 'S',
-            //     ),
-            //     UserSlot(
-            //       slotColour: Colors.lightBlue,
-            //       slotDuration: .3,
-            //       slotUser: 'A',
-            //     ),
-            //     UserSlot(
-            //       slotColour: Colors.orange,
-            //       slotDuration: .2,
-            //       slotUser: 'B',
-            //     ),
-            //   ],
-            // ),
-            ),
+            )),
       ],
     );
   }
