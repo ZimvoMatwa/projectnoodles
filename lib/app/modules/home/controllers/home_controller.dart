@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
-  final List<MemberBooking> _activeMember = [
+  final List<MemberBooking> _floaties = [
     MemberBooking(
       memberName: 'Z',
       memberHours: .2,
@@ -86,8 +86,13 @@ class HomeController extends GetxController {
     ),
   ];
 
-  List<MemberBooking> get activeMember => _activeMember;
+  final RxBool _pressed = false.obs;
+
+  List<MemberBooking> get floaties => _floaties;
   List<NoodlesExhibit> get exhibits => _exhibits;
+
+  bool get pressed => _pressed.value;
+  set pressed(bool press) => _pressed.value = press;
 }
 
 class MemberBooking {

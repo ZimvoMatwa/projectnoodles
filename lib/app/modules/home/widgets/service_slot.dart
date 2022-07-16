@@ -30,7 +30,7 @@ class SlotService extends GetView<HomeController> {
         Container(
             width: MediaQuery.of(context).size.width * .85,
             height: 40,
-            color: serviceColor,
+            color: serviceColor.withOpacity(.6),
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               // physics: ,
