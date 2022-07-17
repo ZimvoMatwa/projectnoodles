@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:projectnoodles/app/modules/widgets/textfield.dart';
 
 import '../controllers/add_services_controller.dart';
 
@@ -24,25 +25,26 @@ class AddServicesView extends GetView<AddServicesController> {
             key: controller.formKey,
             child: Column(
               children: [
-                TextFormField(
+                InputField(
                   controller: controller.serviceController,
-                  decoration: const InputDecoration(
-                    contentPadding: EdgeInsets.only(left: 10),
-                    hintText: 'Name of the service',
-                    labelText: 'Service Name',
-                  ),
-                  onEditingComplete: () => FocusScopeNode().nextFocus(),
-                  textInputAction: TextInputAction.next,
+                  validator: controller.allFieldsValidation,
+                  hintText: 'Name of the service',
+                  labelText: 'Service Name',
                 ),
+                InputField(
+                  controller: controller.serviceController,
+                  hintText: 'Duties',
+                  validator: controller.allFieldsValidation,
+                )
               ],
             )),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        backgroundColor: controller.formKey.currentState!.validate()
+        backgroundColor: controller.formKey.currentState?.validate() != null
             ? Colors.grey
             : Colors.blue,
-        child: controller.formKey.currentState!.validate()
+        child: controller.formKey.currentState?.validate() != null
             ? const Icon(Icons.done_rounded, size: 30)
             : Container(),
       ),
